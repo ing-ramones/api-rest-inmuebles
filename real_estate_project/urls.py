@@ -9,16 +9,17 @@ from drf_yasg import openapi
 
 
 router = routers.DefaultRouter()
-router.register(r'estates', views.EstateViewSet)
 router.register(r'companies', views.CompanyViewSet)
+router.register(r'estate', views.EstateViewSet)
+router.register(r'estates', views.EstateGeoHyperlinkedViewSet)
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Snippets API",
+        title="Real Estate API",
         default_version='v1',
         description="Test description",
         terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(email="contact@snippets.local"),
+        contact=openapi.Contact(email="lumarjose@gmail.com"),
         license=openapi.License(name="BSD License"),
     ),
     public=True,

@@ -4,13 +4,23 @@ from django.utils.timezone import now
 
 
 class CommonInfo(models.Model):
+
     created_at = models.DateTimeField("Created at", default=now, blank=True)
-    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name="Created by", blank=True, null=True,
-                                   related_name="%(app_label)s_%(class)s_created", on_delete=models.CASCADE)
-    last_modified_at = models.DateTimeField(
-        "Last modified at", default=now, blank=True)
-    last_modified_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name="Last modified by", blank=True, null=True,
-                                         related_name="%(app_label)s_%(class)s_lastmodified", on_delete=models.CASCADE)
+
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL,
+                                   verbose_name="Created by",
+                                   blank=True, null=True,
+                                   related_name="%(app_label)s_%(class)s_created",
+                                   on_delete=models.CASCADE)
+
+    last_modified_at = models.DateTimeField("Last modified at",
+                                            default=now,
+                                            blank=True)
+
+    last_modified_by = models.ForeignKey(settings.AUTH_USER_MODEL,
+                                         verbose_name="Last modified by", blank=True, null=True,
+                                         related_name="%(app_label)s_%(class)s_lastmodified",
+                                         on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
         if not self.created_at:
