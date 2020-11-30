@@ -9,7 +9,6 @@ from rest_framework.decorators import api_view
 from drf_yasg import openapi
 
 
-@swagger_auto_schema(methods=['get'], request_body=EstateSerializer)
 @api_view(['GET'])
 def estateList(request):
     estate = Estate.objects.all()
@@ -17,7 +16,7 @@ def estateList(request):
     return Response(serializer.data)
 
 
-@swagger_auto_schema(methods=['get'], request_body=EstateSerializer)
+# @swagger_auto_schema(methods=['get'], request_body=EstateSerializer)
 @api_view(['GET'])
 def estateFindById(request, pk):
     estate = Estate.objects.get(id=pk)
@@ -25,15 +24,14 @@ def estateFindById(request, pk):
     return Response(serializer.data)
 
 
-@swagger_auto_schema(methods=['get'], request_body=CompanySerializer)
-@api_view(['GET'])
+# @api_view(['GET'])
 def companyList(request):
     companies = Company.objects.all()
     serializer = CompanySerializer(companies, many=True)
     return Response(serializer.data)
 
 
-@swagger_auto_schema(methods=['get'], request_body=CompanySerializer)
+# @swagger_auto_schema(methods=['get'], request_body=CompanySerializer)
 @api_view(['GET'])
 def companyFindById(request, pk):
     company = Company.objects.get(id=pk)
