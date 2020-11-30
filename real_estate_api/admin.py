@@ -7,3 +7,4 @@ admin.site.site_title = "Real Estate Admin"
 admin.site.index_title = "Inventory"
 
 admin.site.register(models.Estate)
+admin.site.register(models.Company)

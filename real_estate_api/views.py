@@ -1,6 +1,5 @@
-from rest_framework import serializers
-from real_estate_api.serializers import EstateSerializer
-from real_estate_api.models import Estate
+from real_estate_api.serializers import EstateSerializer, CompanySerializer, EstateHyperlinkedSerializer
+from real_estate_api.models import Estate, Company
 from rest_framework.response import Response
 from rest_framework import viewsets
 
@@ -24,21 +23,26 @@ def estateFindById(request, pk):
     return Response(serializer.data)
 
 
+@swagger_auto_schema(methods=['put', 'post'], request_body=EstateSerializer)
+@api_view(['PUT', 'POST'])
+def estateCreate(request):
+    serializer = EstateSerializer(data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+
+class CompanyViewSet(viewsets.ModelViewSet):
+    queryset = Company.objects.all()
+    serializer_class = CompanySerializer
+
+
 class EstateViewSet(viewsets.ModelViewSet):
     queryset = Estate.objects.all()
-    serializer_class = EstateSerializer
+    serializer_class = EstateHyperlinkedSerializer
 
-
-"""
-class EstateViewSet(viewsets.ModelViewSet):
-    queryset = Estate.objects.all()
-    serializer_class = EstateSerializer
-
-    @swagger_auto_schema(operation_description="PUT /estates/{id}/")
-    def update(self, request, *args, **kwargs):
-        ...
-        # 'methods' can be used to apply the same modification to multiple methods
-"""
 
 """
 @swagger_auto_schema(methods=['put', 'post'], request_body=EstateSerializer)
