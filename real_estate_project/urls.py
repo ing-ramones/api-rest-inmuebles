@@ -17,7 +17,7 @@ schema_view = get_schema_view(
     openapi.Info(
         title="Real Estate API",
         default_version='v1',
-        description="Test description",
+        description="Esta api es para aprender Django, CRUD Inmobiliaria",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="lumarjose@gmail.com"),
         license=openapi.License(name="BSD License"),
