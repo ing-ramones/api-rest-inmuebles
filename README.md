@@ -53,6 +53,9 @@ http://127.0.0.1:8000/admin
 
 # Swagger
 http://127.0.0.1:8000/swagger
+
+# Redoc
+http://127.0.0.1:8000/redoc
 ```
 
 ## Fuentes principales en las que me basé para el desarrollo
