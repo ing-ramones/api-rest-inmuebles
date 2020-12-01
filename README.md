@@ -8,7 +8,7 @@ Es un CRUD basico hecho con el framework Django y usando Postgres para la persis
 ```bash
 > docker
 > git (Opcional)
-> linux / windows
+> linux / windows / os
 ```
 
 
