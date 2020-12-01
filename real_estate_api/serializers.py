@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from geojson_serializer.serializers import geojson_serializer
-from django.core.serializers import serialize
 from real_estate_api.models import Estate, Company
 
 

@@ -1,6 +1,5 @@
 
 from time import strptime
-import datetime
 
 from django.db import models
 
