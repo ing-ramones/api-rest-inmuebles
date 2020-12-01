@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  db:
+    build: ./docker-container/database
+    environment:
+            POSTGRES_PASSWORD: 9nFyHgRto9D4yQrVgFhsdfshfgE2
+    volumes:
+      - /opt/postgres-data:/var/lib/postgresql/data
+  web:
+    build: ./docker-container/server
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/server
+    environment:
+      - PGUSER=postgres
+      - PGHOST=db
+      - PGDATABASE=postgres
+      - PGPASSWORD=9nFyHgRto9D4yQrVgFhsdfshfgE2
+      - PGPORT=5432
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
