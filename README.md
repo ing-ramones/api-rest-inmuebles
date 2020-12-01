@@ -6,7 +6,7 @@ Es un CRUD basico hecho con el framework Django y usando Postgres para la persis
 ## Requisitos
 
 ```bash
-> docker
+> docker / docker-compose
 > git (Opcional)
 > linux / windows / os
 ```
