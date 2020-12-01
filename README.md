@@ -17,7 +17,7 @@ Es un CRUD basico hecho con el framework Django y usando Postgres para la persis
 Hacer git clone
 
 ```bash
-git clone https://github.com/ing-ramones/inmuebleapp.git
+git clone -b docker https://github.com/ing-ramones/inmuebleapp.git
 ```
 
 
