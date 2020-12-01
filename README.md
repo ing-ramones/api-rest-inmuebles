@@ -2,7 +2,6 @@
 
 Es un CRUD basico hecho con el framework Django y usando Postgres para la persistencia de los datos
 
-
 ## Requisitos
 
 ```bash
@@ -10,7 +9,6 @@ Es un CRUD basico hecho con el framework Django y usando Postgres para la persis
 > git (Opcional)
 > linux / windows / os
 ```
-
 
 ## Instalación
 
@@ -20,9 +18,7 @@ Hacer git clone
 git clone -b docker https://github.com/ing-ramones/inmuebleapp.git
 ```
 
-
 Ejecutar los comandos docker-compose en un terminal en la raiz del proyecto:
-
 
 ```bash
 # 1- Build Docker-Compose
@@ -30,7 +26,11 @@ $ docker-compose -f docker-compose.yml build
 
 # 2- Up Docker-Compose
 $ docker-compose up
+```
 
+En otro terminal en la raiz del proyecto ejecutar:
+
+```bash
 # 3- Run Makemigrations
 $ docker-compose -f docker-compose.yml run --rm web python manage.py makemigrations
 
@@ -39,16 +39,20 @@ $ docker-compose -f docker-compose.yml run --rm web python manage.py migrate
 
 # 5- Run createsuperusere
 $ docker-compose -f docker-compose.yml run --rm web python manage.py createsuperuser
-
 # Completar los datos que solicita y listo
-
 ```
 
+Test
+
+```bash
+# 1- Run Test
+$ docker-compose -f docker-compose.yml run --rm web pytest -v
+```
 
 ## Uso
 
 ```bash
-# Entrar al administrador
+# Entrar al administrador (Con el usuario que creaste en los pasos previos)
 http://127.0.0.1:8000/admin
 
 # Swagger
@@ -59,7 +63,6 @@ http://127.0.0.1:8000/redoc
 ```
 
 ## Fuentes principales en las que me basé para el desarrollo
-
 
 ```bash
 # Documentación oficial de Django
@@ -73,4 +76,5 @@ http://ccbv.co.uk/
 ```
 
 ## License
+
 [BSD](https://choosealicense.com/bsd)
