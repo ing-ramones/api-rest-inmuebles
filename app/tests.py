@@ -21,14 +21,14 @@ class TestCompanyEstateUrl(APITestCase):
 
     def test_url_exists_at_desired_location(self):
         for url in urlpatterns:
-            print(url.pattern.regex.groups)
+
             # Acepta solo solicitudes GET e ignore las URL que necesitan argumentos.
             if not isinstance(url, URLPattern) or url.pattern.regex.groups or not url.name or url.name.find("detail") == -1 or url.name.find("create") == -1:
                 continue
 
             urlpath = reverse(url.name)
             response = self.client.get(urlpath, follow=True)
-            print(urlpath, response.status_code)
+
             assert response.status_code == status.HTTP_200_OK
 
 

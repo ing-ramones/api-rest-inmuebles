@@ -45,8 +45,13 @@ $ docker-compose -f docker-compose.yml run --rm web python manage.py createsuper
 Test
 
 ```bash
-# 1- Run Test
+# 1- Run pytest
 $ docker-compose -f docker-compose.yml run --rm web pytest -v
+
+# 2- Run coverage
+$ docker-compose -f docker-compose.yml run --rm web coverage
+
+# >>> Coverage HTML written to dir htmlcov <<<
 ```
 
 ## Uso
