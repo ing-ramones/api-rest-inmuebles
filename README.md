@@ -21,7 +21,7 @@ git clone https://github.com/ing-ramones/inmuebleapp.git
 ```
 
 
-Ejecutar los comandos docker dendor de la raiz del proyecto:
+Ejecutar los comandos docker en un terminal en la raiz del proyecto:
 
 
 ```bash
