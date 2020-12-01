@@ -1,10 +1,24 @@
-from real_estate_api.serializers import EstateSerializer, CompanySerializer, EstateGeoHyperlinkedSerializer
-from real_estate_api.models import Estate, Company
+from app.serializers import EstateSerializer, CompanySerializer, EstateGeoHyperlinkedSerializer
+from app.models import Estate, Company
 from rest_framework.response import Response
 from rest_framework import viewsets
 
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework.decorators import api_view
+
+
+@api_view(['GET'])
+def companyList(request):
+    companies = Company.objects.all()
+    serializer = CompanySerializer(companies, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def companyFindById(request, pk):
+    company = Company.objects.get(id=pk)
+    serializer = CompanySerializer(company, many=False)
+    return Response(serializer.data)
 
 
 @api_view(['GET'])
@@ -21,17 +35,14 @@ def estateFindById(request, pk):
     return Response(serializer.data)
 
 
-@api_view(['GET'])
-def companyList(request):
-    companies = Company.objects.all()
-    serializer = CompanySerializer(companies, many=True)
-    return Response(serializer.data)
+@swagger_auto_schema(methods=['post'], request_body=CompanySerializer)
+@api_view(['POST'])
+def companyCreate(request):
+    serializer = CompanySerializer(data=request.data)
 
+    if serializer.is_valid():
+        serializer.save()
 
-@api_view(['GET'])
-def companyFindById(request, pk):
-    company = Company.objects.get(id=pk)
-    serializer = CompanySerializer(company, many=False)
     return Response(serializer.data)
 
 

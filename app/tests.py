@@ -2,12 +2,12 @@ import datetime
 import json
 import pytest
 
-from real_estate_api.views import CompanyViewSet
 from time import strftime
 
-from real_estate_api.models import Estate, Company
-from real_estate_api.serializers import EstateSerializer, CompanySerializer
-from real_estate_api.urls import urlpatterns
+from app.views import CompanyViewSet
+from app.models import Estate, Company
+from app.serializers import EstateSerializer, CompanySerializer
+from app.urls import urlpatterns
 
 from rest_framework import status
 from rest_framework.test import APITestCase
@@ -91,7 +91,7 @@ class TestCompanySerializer:
 
 class TestViewSet():
 
-    @pytest.mark.urls('real_estate_api.urls')
+    @pytest.mark.urls('app.urls')
     def test_list(self, rf, mocker):
         # django-pytest nos permite pasar por inyeccion de dependencia
         # a nuestros tests algunos objetos, en este objeto RequestFactory(rf)

@@ -1,9 +1,9 @@
-from core.models import CommonInfo
+from app.core.models import CommonInfo
 
 from django.contrib.gis.db import models
 from django.db.models import JSONField
 
-from real_estate_api.managers import CompanyManager, EstateManager
+from app.managers import CompanyManager, EstateManager
 
 
 class Company(CommonInfo):

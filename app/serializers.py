@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from geojson_serializer.serializers import geojson_serializer
-from real_estate_api.models import Estate, Company
+from app.models import Estate, Company
 
 
 class CompanySerializer(serializers.ModelSerializer):

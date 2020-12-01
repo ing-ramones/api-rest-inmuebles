@@ -41,8 +41,9 @@ INSTALLED_APPS = [
 
     'drf_yasg',
     'django.contrib.gis',
-    'real_estate_api',
     'geojson_serializer',
+
+    'app',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'real_estate_project.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -73,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'real_estate_project.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
@@ -135,5 +136,5 @@ REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser',
     ],
-    'EXCEPTION_HANDLER': 'real_estate_api.utils.custom_exception_handler',
+    'EXCEPTION_HANDLER': 'app.utils.custom_exception_handler',
 }
