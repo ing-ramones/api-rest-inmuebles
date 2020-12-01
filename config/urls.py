@@ -32,6 +32,6 @@ urlpatterns = [
                                          cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc',
                                        cache_timeout=0), name='schema-redoc'),
-    path('api/v1/', include('app.urls')),
+    path('api/v1/', include('api-restful-inmuebles.urls')),
     path('api/v2/', include(router.urls)),
 ]
