@@ -1,6 +1,7 @@
 from app.serializers import EstateSerializer, CompanySerializer, EstateGeoHyperlinkedSerializer
 from app.models import Estate, Company
 from rest_framework.response import Response
+from rest_framework.pagination import PageNumberPagination
 from rest_framework import viewsets
 
 from drf_yasg.utils import swagger_auto_schema
@@ -23,9 +24,13 @@ def companyFindById(request, pk):
 
 @api_view(['GET'])
 def estateList(request):
+
+    paginator = PageNumberPagination()
     estate = Estate.objects.all()
-    serializer = EstateSerializer(estate, many=True)
-    return Response(serializer.data)
+    context = paginator.paginate_queryset(estate, request)
+    serializer = EstateSerializer(context, many=True)
+
+    return paginator.get_paginated_response(serializer.data)
 
 
 @api_view(['GET'])
