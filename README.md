@@ -78,6 +78,10 @@ https://www.django-rest-framework.org/
 
 # Classy Class-Based Views
 http://ccbv.co.uk/
+
+# Swagger/OpenAPI
+https://drf-yasg.readthedocs.io/en/stable/index.html
+
 ```
 
 ## License
